@@ -1,2 +1,2 @@
 #!/bin/bash
-sed -i 's/A/Z' file.txt
+< tr 'Ac' 'Ze'
