@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "%behlnort\n" $(($water#$WATER +  $stir#$STIR))
