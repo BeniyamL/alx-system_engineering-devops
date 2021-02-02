@@ -1,0 +1,1 @@
+this folder containers exercise for shell variable,alias and shel expansion
