@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#bash script to display number from 1 - 10 and Hi, holberton school in between
+
+i=0
+while ((i <= 10))
+do
+	if [ $i -eq 9 ]
+	then
+		echo "Hi"
+	else
+		echo "Holberton School"
+	fi
+    	i=$((i + 1))
+done

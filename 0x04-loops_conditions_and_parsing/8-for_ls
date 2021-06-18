@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#bash script to display the second fied of ls command
+
+fnames="$(ls)"
+for f in $fnames
+do
+    echo "$f" | cut -d '-' -f2
+done

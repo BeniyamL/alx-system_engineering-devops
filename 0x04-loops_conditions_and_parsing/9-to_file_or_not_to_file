@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#bash script to check existence of a file
+
+f_name="holbertonschool"
+if [ -e "$f_name" ]
+then
+	echo "holbertonschool file exists"
+	if [ -s "$f_name" ]
+	then
+		echo "holbertonschool file is not empty"
+	else
+		echo "holbertonschool file is empty"
+	fi
+	if [ -f "$f_name" ]
+	then
+		echo "holbertonschool is a regular file"
+	fi
+else
+	echo "holbertonschool files does not exist"
+fi
