@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# bash script to display to infinity and beyond, handle sigterm and sigint
+
+fun_terminate()
+{
+	rm /var/run/holbertonscript.pid
+	exit
+}
+echo "$$" > /var/run/holbertonscript.pid
+
+trap 'echo "I hate the kill command" && fun_terminate' SIGTERM
+trap 'echo "Y U no love me?!" && fun_terminate' SIGINT
+trap 'fun_terminate' SIGQUIT
+
+while (true)
+do
+	echo "To infinity and beyond"
+done

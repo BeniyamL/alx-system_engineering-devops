@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# bash script to display to infinity and beyond infinitly add catch SIGTERM
+
+trap "echo I am invincible!!!" SIGTERM
+
+while (true)
+do
+	echo "To infinity and beyond"
+	sleep 2
+done

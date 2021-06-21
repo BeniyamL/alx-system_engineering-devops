@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# bash script to kill 4- to_infinity_and_beyond forcefully
+
+pkill -9 -f 7-highlander
