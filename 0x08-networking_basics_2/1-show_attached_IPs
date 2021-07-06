@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# bash script to display the all active ipv4 attached on the machine
+
+ifconfig | grep "inet addr" | cut -d ':' -f2 | cut -d " " -f1
