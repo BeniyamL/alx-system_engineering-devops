@@ -9,7 +9,7 @@ $new_str = '\trewrite ^/redirect_me/$ $alx permanent;'
 
 exec {'restart':
   command => 'usr/sbin/service nginx restart',
-  require => package['nginx']
+  require => Package['nginx']
 }
 
 package { 'nginx':
@@ -22,11 +22,11 @@ exec {'update':
 }
 
 file { '/var/www/html/index.html':
-  ensure   => 'present',
-  content  => 'Holberton School',
-  mode     => '0644',
-  owner    => 'root',
-  group    => 'root'
+  ensure  => 'present',
+  content => 'Holberton School',
+  mode    => '0644',
+  owner   => 'root',
+  group   => 'root'
 }
 
 file_line { '301 redirction':
