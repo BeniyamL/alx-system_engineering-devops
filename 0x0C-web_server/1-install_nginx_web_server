@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script that install ngnix and configure it
+# It configures to port 80
+
+apt update
+apt install -y nginx
+ufw allow 'Nginx HTTP'
+echo "Holberton School" > /var/www/html/index.html
+service nginx restart
