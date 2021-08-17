@@ -5,7 +5,7 @@
 include stdlib
 
 $alx = 'https://www.youtube.com/watch?v=QH2-TGUlwu4'
-$new_str = '\trewrite ^/redirect_me/$ $alx permanent;'
+$new_str = '\trewrite ^/redirect_me/$ ${alx} permanent;'
 
 exec {'restart':
   command => 'usr/sbin/service nginx restart',
@@ -18,7 +18,7 @@ package { 'nginx':
 }
 
 exec {'update':
-  command  => 'usr/bin/apt-get update',
+  command  => 'usr/bin/apt-get update'
 }
 
 file { '/var/www/html/index.html':
