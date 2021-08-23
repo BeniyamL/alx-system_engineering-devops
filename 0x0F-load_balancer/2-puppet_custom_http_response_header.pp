@@ -10,12 +10,12 @@ $new_str = "\trewrite ^/redirect_me/$ ${alx} permanent;"
 $custom_head = "add_header X-Served-By \$hostname;"
 
 exec {'restart':
-  command => 'usr/sbin/service nginx restart',
+  command => '/usr/sbin/service nginx restart',
   require => Package['nginx']
 }
 
 exec {'update':
-  command  => 'usr/bin/apt-get update'
+  command  => '/usr/bin/apt-get update'
 }
 
 package { 'nginx':
