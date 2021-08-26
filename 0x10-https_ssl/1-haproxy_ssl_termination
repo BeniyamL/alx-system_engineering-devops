@@ -1,0 +1,31 @@
+global
+        log 127.0.0.1 local0 notice
+        maxconn 2000
+        user haproxy
+        group haproxy
+
+defaults
+        log global
+        mode http
+        option httplog
+        option dontlognull
+        option redispatch
+        timeout connect 5000
+        timeout client  50000
+        timeout server  50000
+
+frontend http_front
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/www.bnym.tech.pem
+        acl letsencrypt-acl path_beg /.well-know/acme-challenge
+        use_backend backend_letsencrypt if letsencrypt-acl
+        mode http
+        stats uri /haproxy?stats
+        default_backend http_rear
+
+backend_letsencrypt
+        server letsencrypt 127.0.0.1:8888
+backend http_rear
+        balance roundrobin
+        server 204-web-02 35.237.151.121:80 check
+        server 204-web-01 34.75.251.99:80  check

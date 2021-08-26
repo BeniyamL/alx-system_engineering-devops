@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# bash script that will display information about subdomains
+
+
+display_subdomain_information (){
+	ty_ip=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+	echo "$2 $ty_ip" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3 }'
+}
+
+
+if [ "$#" == 1 ]
+then
+	display_subdomain_information "$1" "www"
+	display_subdomain_information "$1" "ib-01"
+	display_subdomain_information "$1" "web-01"
+	display_subdomain_information "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+	display_subdomain_information "$1" "$2"
+fi
