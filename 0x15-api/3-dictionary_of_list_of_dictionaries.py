@@ -33,5 +33,5 @@ if __name__ == "__main__":
         user_task = get_tasks_of_employ(todos, user_id, user_name)
         user_task_detail[user_id] = user_task
 
-    with open("todo_all_employess.json", "w", encoding="utf-8") as file_json:
+    with open("todo_all_employees.json", "w", encoding="utf-8") as file_json:
         file_json.write(json.dumps(user_task_detail))
