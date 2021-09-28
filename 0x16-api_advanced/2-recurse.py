@@ -12,7 +12,7 @@ def recurse(subreddit, hot_list=[], after=''):
     response = requests.get(url, headers=agent, params=params,
                             allow_redirects=False)
     if response.status_code == 404 or response.status_code == 302:
-        return
+        return None
     data = response.json().get('data')
     after = data.get('after')
     hot_titles = data.get('children')
