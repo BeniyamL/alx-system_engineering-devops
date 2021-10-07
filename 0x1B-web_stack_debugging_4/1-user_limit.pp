@@ -2,12 +2,10 @@
 
 # increas hard limt
 exec { 'increase-hard-limt':
-        command => 'sed -i "/holberton hard/s/5/40000" /etc/security/limits.conf',
-        path    => '/usr/local/bin/:/bin/'
+        command => "/bin/sed -i /etc/security/limits.conf -e 's/hard nofile [0-9]\+/hard nofile 40000/g'"
 }
 
 # increase soft limit
 exec { 'increase-soft-limit':
-        command => 'sed -i "/holberton soft/s/4/40000" /etc/security/limits.conf',
-        path    => '/usr/local/bin/:/bin/'
+        command => "/bin/sed -i /etc/security/limits.conf -e 's/soft nofile [0-9]\+/soft nofile 40000/g'"
 }

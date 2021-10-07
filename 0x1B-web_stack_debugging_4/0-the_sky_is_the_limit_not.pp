@@ -2,14 +2,12 @@
 
 # increase the uper limt
 exec { 'increase-upper-limit':
-        command => 'sed -i "s/15/4000" /etc/default/nginx',
-        path    => '/usr/local/bin/:/bin/'
+        command => "/bin/sed -i /etc/default/nginx -e 's/15/4000'"
 }
 
 # restart the nginx service
 
 exec { 'restart-nginx':
-        command => 'nginx restart',
-        path    => '/usr/sbin/service/',
+        command => '/usr/sbin/service nginx restart',
         require => Exec['increase-upper-limit']
 }
